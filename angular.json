@@ -136,5 +136,13 @@
   "defaultProject": "williammoura",
   "cli": {
     "analytics": "67bd2df4-dd77-4831-ae50-3ec83d278c88"
+  },
+  "deploy": {
+    "builder": "angular-cli-ghpages:deploy",
+    "options": {
+      "baseHref": "https://williammoura.github.io/",
+      "name": "Angular Schule Team",
+      "email": "williammoura908@gmail.com"
+    }
   }
 }

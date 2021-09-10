@@ -36,9 +36,9 @@ jobs:
       - name: docker build & push
         uses: docker/build-push-action@v1.1.0
         with:
-          username: lennonalvesdias
+          username: WilliamMoura
           password: ${{ secrets.GITHUB_TOKEN }}
-          repository: lennonalvesdias/lennonalvesdias.github.io/site
+          repository: WilliamMoura/williammoura.github.io
           registry: docker.pkg.github.com
           tags: ${{ github.sha }}, latest
           dockerfile: Dockerfile

@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "williammoura"
+  "defaultProject": "williammoura",
+  "cli": {
+    "analytics": "67bd2df4-dd77-4831-ae50-3ec83d278c88"
+  }
 }

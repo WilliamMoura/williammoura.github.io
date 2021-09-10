@@ -54,7 +54,7 @@ jobs:
           username: ${{ secrets.HOST_USERNAME }}
           password: ${{ secrets.HOST_PASSWORD }}
           script: |
-            cat ./github_token.txt | docker login docker.pkg.github.com -u lennonalvesdias --password-stdin
-            docker pull docker.pkg.github.com/lennonalvesdias/lennonalvesdias.github.io/site:latest
+            cat ./github_token.txt | docker login docker.pkg.github.com -u WilliamMoura --password-stdin
+            docker pull docker.pkg.github.com/WilliamMoura/williammoura.github.io:latest
             docker rm -f site || true
             docker run -d --name site -p 1994:80 --restart=always --net nginx-proxy -e VIRTUAL_HOST=site.lennon.cloud,lennon.cloud -e LETSENCRYPT_HOST=site.lennon.cloud,lennon.cloud -e LETSENCRYPT_EMAIL=lennonalvesdias@gmail.com docker.pkg.github.com/lennonalvesdias/lennonalvesdias.github.io/site:latest

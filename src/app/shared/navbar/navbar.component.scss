@@ -1,3 +1,4 @@
+$back-menu: #f60;
 #header {
     box-sizing: border-box;
     height: 70px;
@@ -7,7 +8,7 @@
     justify-content: space-between;
     background: #e7e7e7;
   }
-  
+
 
 #hamburguer {
     border-top: 2px solid;
@@ -18,7 +19,7 @@
 #hamburguer::before, #hamburguer::after {
     content: '';
     display: block;
-    position: relative;   
+    position: relative;
     background-color: currentColor;
     width: 20px;
     height: 2px;
@@ -31,3 +32,16 @@
     list-style: none;
     gap: 0.5 rem;
 }
+
+.header {
+  height: auto;
+  background-color: $back-menu !important;
+  .header__link {
+    position: relative;
+    width: 10%;
+  }
+  .header__icon {
+    width: 50%;
+  }
+}
+

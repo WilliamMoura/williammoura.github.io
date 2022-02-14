@@ -1,47 +1,25 @@
-$back-menu: #f60;
-#header {
-    box-sizing: border-box;
-    height: 70px;
-    padding: 1rem;
+$back-menu: #f80;
+.header {
+  display: flex;
+  align-items: center;
+
+  &__link {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background: #e7e7e7;
+    text-decoration: none;
   }
 
+  &__icon {
+    max-height: 32px;
+  }
 
-#hamburguer {
-    border-top: 2px solid;
-    width: 20px;
-    cursor: pointer;
-}
-
-#hamburguer::before, #hamburguer::after {
-    content: '';
-    display: block;
-    position: relative;
-    background-color: currentColor;
-    width: 20px;
-    height: 2px;
-    margin-top: 5px;
-    transition: 0.3s;
-}
-
-.menu {
+  &__title-group {
     display: flex;
-    list-style: none;
-    gap: 0.5 rem;
-}
-
-.header {
-  height: auto;
-  background-color: $back-menu !important;
-  .header__link {
-    position: relative;
-    width: 10%;
+    align-items: center;
+    padding-right: 5px;
   }
-  .header__icon {
-    width: 50%;
+  &__title-group i {
+    padding-left: 5px;
   }
 }
 

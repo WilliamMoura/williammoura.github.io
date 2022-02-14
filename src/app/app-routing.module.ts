@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { GaleryComponent } from './galery/galery.component';
 
 const routes: Routes = [
-  {path: "galery", component: GaleryComponent}
+  {path: 'galery', component: GaleryComponent}
 ];
 
 @NgModule({

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Galery } from 'src/app/galery/galery';
 
 @Component({
   selector: 'app-picture',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./picture.component.scss']
 })
 export class PictureComponent implements OnInit {
-  public picture:any;
-  constructor() { 
-    this.picture.alt = 'alt test';
-    this.picture.src = '';
+  @Input() picture: Galery;
+  constructor() {
+    this.picture = {
+      id: 1,
+      src: '',
+      alt: ''
+    };
   }
 
   ngOnInit(): void {

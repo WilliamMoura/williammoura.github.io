@@ -14,4 +14,4 @@ RUN ng build
 FROM nginx
 WORKDIR /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /app/dist/williammoura /usr/share/nginx/html
+COPY --from=build /app/dist/ /usr/share/nginx/html

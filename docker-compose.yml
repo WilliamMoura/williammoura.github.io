@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  app-angular:
+    build: .
+    container_name: app-angular
+    ports:
+      - 4201:4201
+    volumes:
+      - ./templates:/etc/nginx/templates
+    networks:
+      - backend
+    working_dir: /usr/share/nginx/html
+networks:
+  backend:
+    driver: bridge
+volumes:
+  cache:
+    driver: local

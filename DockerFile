@@ -1,3 +1,17 @@
-FROM nginx:alpine
-COPY /dist /usr/share/nginx/html
-COPY ./nginx.conf /etc/nginx/nginx.conf
+FROM node:17.9-alpine as build
+WORKDIR /app
+
+RUN npm install -g @angular/cli
+
+COPY package.json .
+RUN npm config set legacy-peer-deps true
+RUN npm install
+COPY . .
+RUN ng update
+RUN ng config -g cli.warnings.versionMismatch false
+RUN ng build
+
+FROM nginx
+WORKDIR /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /app/dist/williammoura /usr/share/nginx/html

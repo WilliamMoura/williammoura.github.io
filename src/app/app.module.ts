@@ -7,11 +7,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
+import { OnlyNumberDirective } from './directives/only-number.directive';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OnlyNumberDirective,
   ],
   imports: [
     BrowserModule,

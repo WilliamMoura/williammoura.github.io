@@ -1,0 +1,43 @@
+.form-loto {
+    margin: 15px;
+    padding: 10px;
+    border: solid black 1px;
+    border-radius: 10px;
+}
+.form-loto label{
+    font-size: 1.1em;
+    margin-right: 5px;
+}
+
+.form-loto input{    
+    margin-right: 5px;
+    border-radius: 8px;
+}
+
+.content {
+    padding: 0px 5px 0px 5px;
+    border-bottom: 3px solid black;
+    margin: 5px auto;
+    &__col {
+        font-size: 1.1em;
+        border: solid red 1px;
+        text-align: center;
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 5px;
+        margin-right: 5px;
+    }
+}
+
+.acertos {
+    width: 20%;
+    border: solid blue 2px;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px;
+    &__label {
+        font-size: 0.9em;
+        font-weight: 600;
+        margin-right: 10px;
+    }
+}

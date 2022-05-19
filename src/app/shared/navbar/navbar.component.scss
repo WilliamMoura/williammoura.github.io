@@ -26,3 +26,28 @@ $back-menu: #f80;
   }
 }
 
+.content-navigation {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  justify-content: flex-start;
+  &__navigation {
+    display: inline-block;
+    text-align: center;
+    &__item {
+      display: inline-block;
+      width: 16.6%;
+      margin: 15px 15px 5px 15px;
+      padding: 10px;
+    }
+    &__item a {
+      text-decoration: none;
+      color: #000;
+      font-size: 0.8em;
+    }
+    &__item a:hover {
+      font-size: 1.0em;
+    }
+  }
+}
+

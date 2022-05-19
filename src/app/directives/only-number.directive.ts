@@ -4,19 +4,34 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
   selector: '[appOnlyNumber]'
 })
 export class OnlyNumberDirective {
-
-  constructor(private el: ElementRef) {console.log('iea') }
-
-  @HostListener('mouseenter') onMouseEnter() {
-    console.log('ta vindo ae')
+  private allowedKeys: Array<string>;
+  constructor(private el: ElementRef) {
+    this.allowedKeys = Array(
+      'Backspace',
+      'ArrowRight',
+      'ArrowLeft',
+      'Delete',
+      'Home',
+      'End'
+    );
   }
-  
 
-  private onlyNumber() {
-    var iKeyCode = (this.el.nativeElement.which) ? this.el.nativeElement.which : this.el.nativeElement.keyCode
-    if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
-        return false;
+  @HostListener('keydown', ['$event']) onKeydow(evt: KeyboardEvent) {
+    return this.onlyNumber(evt)
+  }
 
-    return true;
+
+  private onlyNumber(event: KeyboardEvent): boolean {
+    this.eraseLeftZero();
+    if (this.allowedKeys.includes(event.key) || !isNaN(Number(event.key))) {
+      return true;
+    }
+    return false;
+  }
+
+  private eraseLeftZero() {
+    if (this.el.nativeElement.value == '0') {
+      this.el.nativeElement.value = '';
+    }
   }
 }

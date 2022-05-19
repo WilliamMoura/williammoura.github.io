@@ -2,17 +2,20 @@
     <div class="form-loto">
         <label>Quantidade de Jogos</label>
         <input appOnlyNumber type="tel" [(ngModel)]="qtdJogos" placeholder="Digite a Quantidade de jogos" class="form-loto__qtdJogos">
-        <button class="btn btn-primary" (click)="gerarJogos()">Gerar Jogos</button>
+        <button class="btn btn-primary mr-2" (click)="gerarJogos()">Gerar Jogos</button>
+        <button class="btn btn-secondary" (click)="cleanGames()">Limpar</button>
     </div>
     <div class="form-loto">
         <label>Verificar Jogos</label>
-        <input appOnlyNumber type="tel" [(ngModel)]="numeroJogo" placeholder="Digite os numeros premiados" class="form-loto__qtdJogos">
-        <button class="btn btn-primary" (click)="adicionarConferencia()">Adicionar Conferencia</button>
+        <input appOnlyNumber type="tel" [(ngModel)]="numeroJogo" value="" placeholder="Digite os numeros premiados" class="form-loto__qtdJogos">
+        <button class="btn btn-primary mr-2" (click)="adicionarConferencia()">Adicionar Conferencia</button>
         <button class="btn btn-success" (click)="checarJogos()">Checar Jogos</button>
     </div>
     <div class="row content" *ngFor="let jogo of resultados">
         <div class="col-1 content__col" *ngFor="let numero of jogo.jogo">
-            <span>{{ numero }}</span>
+            <span>{{ numero.numero }}</span>
+            <mat-icon class="green-color" aria-hidden="false" aria-label="check icon" *ngIf="numero.verificado">check</mat-icon>
+
         </div>
         <div class="acertos">
             <span class="acertos__label">Quantidade de acertos</span>

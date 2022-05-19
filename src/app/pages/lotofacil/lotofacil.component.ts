@@ -1,3 +1,4 @@
+import { Ijogo } from './../../interfaces/ijogo';
 import { Component, Input, OnInit } from '@angular/core';
 import { ILotoFacil } from 'src/app/interfaces/iloto-facil';
 
@@ -17,7 +18,7 @@ export class LotofacilComponent implements OnInit {
     this.verificarJogos = Array();
     this.numeroJogo = Number();
     /*
-    for (let index = 1; index < 15; index++) {      
+    for (let index = 1; index < 15; index++) {
       this.gerarNumeros()
     }
     */
@@ -27,7 +28,7 @@ export class LotofacilComponent implements OnInit {
   }
 
   public gerarJogos():void {
-    for (let index = 0; index < this.qtdJogos; index++) {      
+    for (let index = 0; index < this.qtdJogos; index++) {
       this.gerarNumeros()
     }
   }
@@ -35,28 +36,32 @@ export class LotofacilComponent implements OnInit {
   private gerarNumeros():void {
     const min = Math.ceil(1);
     const max = Math.floor(25);
-    let result = Array();
-    let jogo:ILotoFacil;    
-    while (result.length <= 7) {      
+    let result:Array<Ijogo> = Array();
+    let jogo:ILotoFacil;
+    while (result.length <= 7) {
       let value = Math.floor(Math.random() * (max - min)) + min;
-      if (value % 2 === 0 && ! result.includes(value)) {
-        result.push(value);
+      let joguinho:Ijogo;
+      joguinho = { 'numero': value, 'verificado': false };
+      if (value % 2 === 0 && ! this.verificarItemArray(result ,joguinho)) {
+        result.push(joguinho);
       }
     }
-    
-    let result2 = Array();
-    while (result2.length <= 6) {      
+
+    let result2:Array<Ijogo> = Array();
+    while (result2.length <= 6) {
       let value = Math.floor(Math.random() * (max - min)) + min;
-      if (value%2 !== 0 && ! result2.includes(value)) {
-        result2.push(value);
+      let joguinho:Ijogo;
+      joguinho = { 'numero': value, 'verificado': false };
+      if (value%2 !== 0 && ! this.verificarItemArray(result2 ,joguinho)) {
+        result2.push(joguinho);
       }
     }
     jogo = {'jogo': result.concat(result2)};
-    this.resultados.push(jogo);    
+    this.resultados.push(jogo);
   }
 
-  public adicionarConferencia() {    
-    this.verificarJogos.push(this.numeroJogo);    
+  public adicionarConferencia() {
+    this.verificarJogos.push(this.numeroJogo);
   }
 
   public checarJogos () {
@@ -65,14 +70,29 @@ export class LotofacilComponent implements OnInit {
       let qtdCertos = 0;
       this.verificarJogos.forEach((numero:number) => {
         let res = resultado.jogo.find((element) => {
-          return element == numero
+          return element.numero == numero
         })
-        
+        console.log(res, 'res')
         if (res) {
+          res.verificado = true
           qtdCertos ++;
         }
       })
       resultado.qtdAcertos = qtdCertos;
     })
+  }
+
+  public cleanGames(): void {
+    this.resultados = Array();
+  }
+
+  private verificarItemArray(lista: Array<Ijogo>, joguinho: Ijogo): boolean {
+    let verify = lista.find((item) => {
+      return item.numero === joguinho.numero
+    });
+    if (verify) {
+      return true;
+    }
+    return false;
   }
 }

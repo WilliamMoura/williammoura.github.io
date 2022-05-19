@@ -1,4 +1,5 @@
+import { Ijogo } from './ijogo';
 export interface ILotoFacil {
-    jogo: Array<number>;
+    jogo: Array<Ijogo>;
     qtdAcertos?: number
 }

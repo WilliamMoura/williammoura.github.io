@@ -7,6 +7,7 @@ import { SnakeComponent } from './snake/snake.component';
 import { LotofacilComponent } from './lotofacil/lotofacil.component';
 import { OnlyNumberDirective } from './../directives/only-number.directive';
 import {MatIconModule} from '@angular/material/icon';
+import { LotomaniaComponent } from './lotomania/lotomania.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {MatIconModule} from '@angular/material/icon';
     AboutComponent,
     SnakeComponent,
     LotofacilComponent,
-    OnlyNumberDirective
+    OnlyNumberDirective,
+    LotomaniaComponent
   ],
   imports: [
     CommonModule,

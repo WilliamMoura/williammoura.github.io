@@ -1,3 +1,4 @@
+import { LotomaniaComponent } from './pages/lotomania/lotomania.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { GaleryComponent } from './galery/galery.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'snake', component: SnakeComponent },
   { path: 'lotofacil', component: LotofacilComponent },
+  { path: 'lotomania', component: LotomaniaComponent },
   { path: '', redirectTo: '/', pathMatch: 'full' }
 ];
 

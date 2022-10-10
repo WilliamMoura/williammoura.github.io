@@ -1,3 +1,5 @@
+import { CatListComponent } from './pages/cat-list/cat-list.component';
+import { FiisComponent } from './pages/fiis/fiis.component';
 import { LotomaniaComponent } from './pages/lotomania/lotomania.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -12,6 +14,8 @@ const routes: Routes = [
   { path: 'snake', component: SnakeComponent },
   { path: 'lotofacil', component: LotofacilComponent },
   { path: 'lotomania', component: LotomaniaComponent },
+  { path: 'fiis', component: FiisComponent },
+  { path: 'cats', component: CatListComponent },
   { path: '', redirectTo: '/', pathMatch: 'full' }
 ];
 

@@ -8,6 +8,9 @@ import { LotofacilComponent } from './lotofacil/lotofacil.component';
 import { OnlyNumberDirective } from './../directives/only-number.directive';
 import {MatIconModule} from '@angular/material/icon';
 import { LotomaniaComponent } from './lotomania/lotomania.component';
+import { FiisComponent } from './fiis/fiis.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CatListComponent } from './cat-list/cat-list.component';
 
 
 @NgModule({
@@ -16,13 +19,16 @@ import { LotomaniaComponent } from './lotomania/lotomania.component';
     SnakeComponent,
     LotofacilComponent,
     OnlyNumberDirective,
-    LotomaniaComponent
+    LotomaniaComponent,
+    FiisComponent,
+    CatListComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule
   ]
 })
 export class PagesModule { }

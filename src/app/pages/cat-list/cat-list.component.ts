@@ -1,3 +1,5 @@
+import { CatItem } from './../../interfaces/cat-item';
+import { CatListService } from './../../services/cat-list.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cat-list.component.scss']
 })
 export class CatListComponent implements OnInit {
-
-  constructor() { }
+  public catList: CatItem[];
+  constructor(private catListService: CatListService) {this.catList = []; }
 
   ngOnInit(): void {
+    this.catList = this.catListService.getCatList()
   }
 
 }

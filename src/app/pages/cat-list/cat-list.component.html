@@ -1,7 +1,9 @@
 <div class="container">
   <div class="container__item" *ngFor="let item of catList">
-    <div class="container__item__title">{{ item.title }}</div>
-    <div class="container__item__body">{{ item.img }}</div>
-    <div class="container__item__description">{{ item.description }}</div>
+    <div class="container__item__title">{{ item.id }}</div>
+    <div class="container__item__body">
+      <img [src]="item.url" class="thumb">
+    </div>
+    <div class="container__item__description">{{ item.width }}</div>
   </div>
 </div>

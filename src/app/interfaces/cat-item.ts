@@ -1,6 +1,6 @@
 export interface CatItem {
-  id: number,
-  title: string,
-  img: string,
-  description: string
+  id: string,
+  url: string,
+  width: number,
+  heigth: number
 }

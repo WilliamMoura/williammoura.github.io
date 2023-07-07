@@ -12,6 +12,7 @@ export class SnakeComponent implements OnInit {
     for (let index = 1; index < 15; index++) {
       this.gerarNumeros()
     }
+    console.log(this.resultados, 'resultados')
   }
 
   ngOnInit(): void {

@@ -1,7 +1,12 @@
 <p>Hello Snake</p>
 <!--<canvas width="400" height="410"><canvas> -->
 <div class="result">
-    <ul>
+    <div class="caixa" *ngFor="let result of resultados">
+        <div class="caixinha" *ngFor="let numero of result">
+            {{ numero }}
+        </div>
+    </div>
+    <!-- <ul>
         <li *ngFor="let result of resultados">{{ result }}</li>
-    </ul>
+    </ul> -->
 </div>

@@ -11,10 +11,6 @@ export class SnakeComponent implements OnInit {
   public proporcao = 60;
   constructor() {
     this.resultados = Array();
-    for (let index = 1; index < 15; index++) {
-      //this.gerarNumeros()
-    }
-    console.log(this.resultados, 'resultados')
   }
 
   ngOnInit(): void {
@@ -24,18 +20,21 @@ export class SnakeComponent implements OnInit {
     const min = Math.ceil(1);
     const max = Math.floor(25);
     let result = Array();
-
-    while (result.length <= 8) {
+    let pares = Math.round((15/100) * this.proporcao);
+    if (pares > 11) {
+      pares = 11;
+    }
+    let impares = 15 - pares;
+    console.log(impares, 'impares')
+    while (result.length < pares) {
       let value = Math.floor(Math.random() * (max - min)) + min;
       if (value % 2 === 0 && ! result.includes(value)) {
-        console.log('ta vindo')
-        console.log(result.length, 'tamanho')
         result.push(value);
       }
     }
 
     let result2 = Array();
-    while (result2.length <= 7) {
+    while (result2.length < impares) {
       let value = Math.floor(Math.random() * (max - min)) + min;
       if (value%2 !== 0 && ! result2.includes(value)) {
         result2.push(value);
@@ -50,7 +49,7 @@ export class SnakeComponent implements OnInit {
     this.resultados.push(concat);
   }
 
-  public gerarJogos(): void {
+  public gerarJogos(): void {    
     this.resultados = Array();
     for (let index = 0; index < this.qtdJogos; index++) {      
       this.gerarNumeros();

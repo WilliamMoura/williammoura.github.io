@@ -1,0 +1,27 @@
+.game-panel {
+    position: relative;
+    margin: 10px auto;
+    border: 1px solid green;
+    width: 80%;
+    height: 400px;
+    border-radius: 10px;
+    background: linear-gradient(rgb(137, 243, 15), rgb(107, 221, 230));
+
+    &__bunny {
+        position: absolute;
+        bottom: 0px;
+        width: 50px;
+        height: 50px;
+        animation: animation-bunny-horizontal-right 10s infinite linear;
+    }
+}
+
+@keyframes animation-bunny-horizontal-right {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 100%;
+    }
+}

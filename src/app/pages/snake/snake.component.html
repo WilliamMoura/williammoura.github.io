@@ -1,4 +1,10 @@
-<p>Hello Snake</p>
+<div class="container-label">
+    <p>Proporção de pares</p>
+    <input type="tel" class="container-label__text" [(ngModel)]="proporcao">
+    <p>Qtd Jogos</p>
+    <input type="tel" class="container-label__text" [(ngModel)]="qtdJogos">
+    <button type="button" class="container-label__button" (click)="gerarJogos()">Gerar</button>
+</div>
 <!--<canvas width="400" height="410"><canvas> -->
 <div class="result">
     <div class="caixa" *ngFor="let result of resultados">

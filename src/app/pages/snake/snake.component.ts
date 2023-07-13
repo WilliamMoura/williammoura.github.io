@@ -7,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SnakeComponent implements OnInit {
   public resultados:Array<any>;
+  public qtdJogos = 0;
+  public proporcao = 60;
   constructor() {
     this.resultados = Array();
     for (let index = 1; index < 15; index++) {
-      this.gerarNumeros()
+      //this.gerarNumeros()
     }
     console.log(this.resultados, 'resultados')
   }
@@ -40,7 +42,19 @@ export class SnakeComponent implements OnInit {
       }
     }
     let concat = result.concat(result2);
+    concat.sort((a, b) => {
+      if (a > b) return 1;
+      if (a < b) return -1;
+      return 0;
+    })
     this.resultados.push(concat);
+  }
+
+  public gerarJogos(): void {
+    this.resultados = Array();
+    for (let index = 0; index < this.qtdJogos; index++) {      
+      this.gerarNumeros();
+    }
   }
 
 }

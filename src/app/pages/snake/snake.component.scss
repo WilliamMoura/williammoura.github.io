@@ -1,11 +1,31 @@
+.container-label {
+    margin: 5px;
+    padding: 5px;
+    &__text {
+        border-radius: 6px;
+    }
+    &__button {
+        margin-left: 15px;
+    }
+}
+
+.result {
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+}
+
 .caixa {
     border: solid 1px black;
     display: flex;
     flex-direction: row;
     padding: 5px;
     margin: 5px;
+    flex-wrap: wrap;
+    width: 18.3%;
+    border-radius: 6px;
 }
 .caixinha {
-    width: 6.7%;
+    width: 19.7%;
     text-align: center;    
 }

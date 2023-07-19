@@ -18,14 +18,13 @@ export class SnakeComponent implements OnInit {
 
   private gerarNumeros():void {
     const min = Math.ceil(1);
-    const max = Math.floor(25);
+    const max = Math.floor(26);
     let result = Array();
     let pares = Math.round((15/100) * this.proporcao);
     if (pares > 11) {
       pares = 11;
     }
-    let impares = 15 - pares;
-    console.log(impares, 'impares')
+    let impares = 15 - pares;    
     while (result.length < pares) {
       let value = Math.floor(Math.random() * (max - min)) + min;
       if (value % 2 === 0 && ! result.includes(value)) {

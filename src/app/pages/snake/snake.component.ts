@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class SnakeComponent implements OnInit {
   public resultados:Array<any>;
   public qtdJogos = 0;
-  public proporcao = 60;
+  public proporcao = 0;
   constructor() {
     this.resultados = Array();
   }

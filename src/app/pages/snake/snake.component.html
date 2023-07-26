@@ -1,6 +1,6 @@
 <div class="container-label">
     <p>Proporção de pares</p>
-    <input type="tel" class="container-label__text" [(ngModel)]="proporcao">
+    <input type="tel" class="container-label__text" [(ngModel)]="proporcao" appOnlyNumber>
     <p>Qtd Jogos</p>
     <input type="tel" class="container-label__text" [(ngModel)]="qtdJogos">
     <button type="button" class="container-label__button" (click)="gerarJogos()">Gerar</button>

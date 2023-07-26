@@ -23,18 +23,17 @@ export class LotomaniaComponent implements OnInit {
   }
 
   private gerarNumeros():void {
-    const min = Math.ceil(0);
-    const max = Math.floor(99);
     let result:Array<Ijogo> = Array();
     let jogo:Ilotomania;
-    while (result.length <= 50) {
-      let value = Math.floor(Math.random() * (max - min)) + min;
-      let joguinho:Ijogo;
-      joguinho = { 'numero': value, 'verificado': false };
-      if (! this.verificarItemArray(result ,joguinho)) {
-        result.push(joguinho);
-      }
-    }
+    let impares:Array<Ijogo> = this.gerarNumerosImpares();
+    let pares:Array<Ijogo> = this.gerarNumerosPares();
+    result = impares.concat(pares);
+    result.sort((a, b) => {
+      if (a.numero > b.numero) return 1;
+      if (a.numero < b.numero) return -1;
+      return 0;
+    })
+    console.log(result, 'result')
     jogo = {'jogo': result};
     this.resultados.push(jogo);
   }
@@ -79,5 +78,37 @@ export class LotomaniaComponent implements OnInit {
     for (let index = 0; index < this.qtdJogos; index++) {
       this.gerarNumeros()
     }
+  }
+
+  private gerarNumerosImpares(): Array<Ijogo>
+  {
+    const min = Math.ceil(0);
+    const max = Math.floor(99);
+    let result:Array<Ijogo> = Array();    
+    while (result.length < 25) {
+      let value = Math.floor(Math.random() * (max - min)) + min;
+      let joguinho:Ijogo;
+      joguinho = { 'numero': value, 'verificado': false };
+      if (value%2 !== 0 && ! this.verificarItemArray(result ,joguinho)) {
+        result.push(joguinho);
+      }
+    }
+    return result
+  }
+
+  private gerarNumerosPares(): Array<Ijogo>
+  {
+    const min = Math.ceil(0);
+    const max = Math.floor(99);
+    let result:Array<Ijogo> = Array();    
+    while (result.length < 25) {
+      let value = Math.floor(Math.random() * (max - min)) + min;
+      let joguinho:Ijogo;
+      joguinho = { 'numero': value, 'verificado': false };
+      if (value%2 === 0 && ! this.verificarItemArray(result ,joguinho)) {
+        result.push(joguinho);
+      }
+    }
+    return result
   }
 }

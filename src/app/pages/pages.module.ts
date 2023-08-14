@@ -11,6 +11,7 @@ import { LotomaniaComponent } from './lotomania/lotomania.component';
 import { FiisComponent } from './fiis/fiis.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CatListComponent } from './cat-list/cat-list.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { CatListComponent } from './cat-list/cat-list.component';
     OnlyNumberDirective,
     LotomaniaComponent,
     FiisComponent,
-    CatListComponent
+    CatListComponent,
+    CategoriesComponent
   ],
   imports: [
     CommonModule,

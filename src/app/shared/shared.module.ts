@@ -11,6 +11,10 @@ import { PictureComponent } from './picture/picture.component';
 import { GaleryComponent } from '../galery/galery.component';
 import { CardItemComponent } from './card-item/card-item.component';
 import { NavComponent } from './nav/nav.component';
+import { ModalAdicionarComponent } from './modal-adicionar/modal-adicionar.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -20,13 +24,17 @@ import { NavComponent } from './nav/nav.component';
     PictureComponent,
     GaleryComponent,
     CardItemComponent,
-    NavComponent
+    NavComponent,
+    ModalAdicionarComponent
   ],
   imports: [
     CommonModule,
     MatToolbarModule,
     MatSidenavModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   exports: [
     TitleComponent,
@@ -34,7 +42,8 @@ import { NavComponent } from './nav/nav.component';
     FooterComponent,
     GaleryComponent,
     CardItemComponent,
-    NavComponent
+    NavComponent,
+    ModalAdicionarComponent
   ],
 })
 export class SharedModule { }

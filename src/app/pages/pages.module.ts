@@ -12,7 +12,7 @@ import { FiisComponent } from './fiis/fiis.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CatListComponent } from './cat-list/cat-list.component';
 import { CategoriesComponent } from './categories/categories.component';
-
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { CategoriesComponent } from './categories/categories.component';
     SharedModule,
     FormsModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
   ]
 })
 export class PagesModule { }

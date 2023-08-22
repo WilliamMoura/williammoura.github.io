@@ -15,6 +15,7 @@ import { ModalAdicionarComponent } from './modal-adicionar/modal-adicionar.compo
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     AppRoutingModule,
     MatCardModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    FormsModule
   ],
   exports: [
     TitleComponent,

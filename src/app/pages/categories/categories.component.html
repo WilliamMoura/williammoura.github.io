@@ -1,24 +1,22 @@
 <div class="container">    
     <button class="btn btn-success" (click)="addCategory()">Adicionar</button>
-    <app-modal-adicionar title="Adicionar"></app-modal-adicionar>
+    <app-modal-adicionar title="Adicionar" (newItemEvent)="salvar($event)" *ngIf="visible"></app-modal-adicionar>
     <mat-card>
         <mat-card-header>
-            <mat-card-title>Categoria</mat-card-title>
+            <mat-card-title>Categorias</mat-card-title>
         </mat-card-header>
         <mat-card-content>
             <table class="table">
                 <thead>
                     <th scope="col">Id</th>
                     <th scope="col">Nome</th>
+                    <th scope="col">Ações</th>
                 </thead>
                 <tbody>
-                    <tr scope="row">
-                        <td>1</td>
-                        <td>Aluguel</td>
-                    </tr>
-                    <tr scope="row">
-                        <td>2</td>
-                        <td>Condominio</td>
+                    <tr scope="row" *ngFor="let cat of categories">
+                        <td>{{ cat.id }}</td>
+                        <td>{{ cat.name }}</td>
+                        <td><button class="btn btn-danger" (click)="deletar(cat.id)">Del</button></td>
                     </tr>
                 </tbody>
             </table>

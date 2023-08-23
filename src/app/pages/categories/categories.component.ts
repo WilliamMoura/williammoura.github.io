@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, Input } from '@angular/core';
 import { ICategory } from 'src/app/interfaces/icategory';
+import { CategoriesService } from 'src/app/services/categories/categories.service';
 
 @Component({
   selector: 'app-categories',
@@ -10,11 +11,16 @@ export class CategoriesComponent implements OnInit {
   visible:boolean = false;
   @Input() data:string = '';
   categories:Array<ICategory> = []
-  constructor() {
+  constructor(private service:CategoriesService) {
     this.categories = [
       { id: 1, name: 'alugel' },
       { id: 2, name: 'condominio' }
     ]
+    const teste = this.service.index().then((data) => {
+      console.log(data, 'dasasd')
+    });
+    console.log(teste, 'teste')
+
    }
 
   ngOnInit(): void {
@@ -35,7 +41,13 @@ export class CategoriesComponent implements OnInit {
 
   public deletar(id:number):void
   {
-    console.log(id, 'id pra deletar')
+    let findIndex = 0;
+    this.categories.forEach((item, index) => {
+      if (item.id === id) {
+        findIndex = index;
+      }
+    })    
+    this.categories.splice(findIndex, 1)    
   }
   
 }

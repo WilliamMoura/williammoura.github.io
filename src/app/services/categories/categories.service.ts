@@ -19,4 +19,8 @@ export class CategoriesService {
   public store(category: ICategory) {
     return this.http.post(`${environment.api_url}category`, category)
   }
+
+  public delete(categoriId: number): Observable<Object> {    
+    return this.http.delete<Object>(`${environment.api_url}category/${categoriId}`)
+  }
 }

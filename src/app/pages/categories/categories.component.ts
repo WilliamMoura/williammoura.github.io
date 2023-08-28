@@ -12,9 +12,7 @@ export class CategoriesComponent implements OnInit {
   @Input() data:string = '';
   categories:Array<ICategory> = []
   constructor(private service:CategoriesService) {
-    this.service.index().subscribe((response) => {
-      this.categories = response
-    })    
+    this.index()
    }
 
   ngOnInit(): void {
@@ -39,14 +37,18 @@ export class CategoriesComponent implements OnInit {
   }
 
   public delete(id:number):void
+  {    
+    this.service.delete(id).subscribe((response) => {
+
+      this.index()
+    })
+  }
+
+  public index(): void
   {
-    let findIndex = 0;
-    this.categories.forEach((item, index) => {
-      if (item.id === id) {
-        findIndex = index;
-      }
-    })    
-    this.categories.splice(findIndex, 1)    
+    this.service.index().subscribe((response) => {
+      this.categories = response
+    })
   }
   
 }
